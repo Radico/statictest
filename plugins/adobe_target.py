@@ -31,6 +31,8 @@ adobe.target.getOffer({
 """
 
 
+# Inspired by:
+# https://github.com/riquellopes/pelican-adsense/blob/master/adsense.py
 def add_adobe_target(generator):
     for article in generator.articles:
         for i, adobe_target in enumerate(
