@@ -27,7 +27,12 @@ are any offers that should be displayed in a particular location.  The location
 is generated from the "post" name in pelican.  A post can have multiple 
 locations, which will be indexed numerically, but so far each post only has one.
 If Adobe Target responds with an offer for the location, then its content is
-written into the DOM using jQuery.
+written into the DOM also using Adobe Target.
+
+### How to use a contact identity
+
+Add the query string `?thirdPartyId=` to the URL and set the value to the
+contact's thirdPartyId value used in Adobe Target. 
 
 ## Developing
 
