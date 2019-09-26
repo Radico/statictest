@@ -12,6 +12,7 @@ TEMPLATE = """
 const params = (new URL(document.location)).searchParams;
 const thirdPartyId = params.get('thirdPartyId')
 
+// https://docs.adobe.com/content/help/en/target/using/implement-target/client-side/functions-overview/adobe-target-getoffers-atjs-2.html#request
 adobe.target.getOffers({
     request: {
         id: {
