@@ -1,0 +1,27 @@
+<p>This is location: {{location}}</p>
+<div id={{selector | tojson}}></div>
+<script>
+
+const params = (new URL(document.location)).searchParams;
+const thirdPartyId = params.get('thirdPartyId')
+
+// https://docs.adobe.com/content/help/en/target/using/implement-target/client-side/functions-overview/adobe-target-getoffers-atjs-2.html#request
+adobe.target.getOffers({
+    request: {
+        id: {
+            thirdPartyId: thirdPartyId
+        },
+        execute: {
+            mboxes: [
+                {index: 0, name: {{location | tojson}}}
+            ]
+        }
+    }
+}).then(response => {
+    adobe.target.applyOffers({
+        selector: "#" + {{selector | tojson}},
+        response: response,
+    })
+})
+
+</script>

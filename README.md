@@ -51,8 +51,9 @@ When you're happy with it, you can deploy the site to S3 with: `make s3_upload`
 
 ## Files to be aware of
 
-- `plugins/adobe_target.py`: this is a Pelican plugin that replaces its token
-with dynamic HTML & JS.
+- `plugins/adobe_target/__init__.py`: this is a Pelican plugin that replaces its
+token with dynamic HTML & JS.
+- `plugins/adobe_target/template.jinja`: this is the dynamic HTML & JS template
 - `content/`: this folder has the posts.  you can modify these to give them a
 unique look.
 - `generate-content.py`: quick script to generate a bunch of files in the 

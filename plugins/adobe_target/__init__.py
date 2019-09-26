@@ -1,47 +1,21 @@
+import os
 import re
 from jinja2 import Template
 from pelican import signals
 
 ADOBE_TARGET_REGEX = re.compile(r'\[adobe_target\]')
-
-TEMPLATE = """
-<p>This is location: {{location}}</p>
-<div id={{selector | tojson}}></div>
-<script>
-
-const params = (new URL(document.location)).searchParams;
-const thirdPartyId = params.get('thirdPartyId')
-
-// https://docs.adobe.com/content/help/en/target/using/implement-target/client-side/functions-overview/adobe-target-getoffers-atjs-2.html#request
-adobe.target.getOffers({
-    request: {
-        id: {
-            thirdPartyId: thirdPartyId
-        },
-        execute: {
-            mboxes: [
-                {index: 0, name: {{location | tojson}}}
-            ]
-        }
-    }
-}).then(response => {
-    adobe.target.applyOffers({
-        selector: "#" + {{selector | tojson}},
-        response: response,
-    })
-})
-
-</script>
-"""
+TEMPLATE_FILE = "template.jinja"
 
 
 # Inspired by:
 # https://github.com/riquellopes/pelican-adsense/blob/master/adsense.py
 def add_adobe_target(generator):
+    with open(os.path.dirname(__file__) + '/template.jinja') as file_:
+        tpl = Template(file_.read())
+
     for article in generator.articles:
         for i, adobe_target in enumerate(
                 ADOBE_TARGET_REGEX.findall(article._content)):
-            tpl = Template(TEMPLATE)
             context = generator.context.copy()
             context.update({
                 'location': "{}-{}".format(article.slug, i),
