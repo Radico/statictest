@@ -14,7 +14,9 @@ const thirdPartyId = params.get('thirdPartyId')
 
 adobe.target.getOffers({
     request: {
-        id: thirdPartyId,
+        id: {
+            thirdPartyId: thirdPartyId
+        },
         execute: {
             mboxes: [
                 {index: 0, name: {{location | tojson}}}
