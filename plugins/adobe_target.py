@@ -6,7 +6,7 @@ ADOBE_TARGET_REGEX = re.compile(r'\[adobe_target\]')
 
 TEMPLATE = """
 <p>This is location: {{location}}</p>
-<div id="{{selector}}"></div>
+<div id={{selector | tojson}}></div>
 <script>
 
 const params = (new URL(document.location)).searchParams;
@@ -26,7 +26,7 @@ adobe.target.getOffers({
     }
 }).then(response => {
     adobe.target.applyOffers({
-        selector: "#{{selector}}",
+        selector: "#" + {{selector | tojson}},
         response: response,
     })
 })
