@@ -15,7 +15,7 @@ DEFAULT_LANG = 'en'
 LOAD_CONTENT_CACHE = False
 
 PLUGIN_PATHS = ["plugins"]
-PLUGINS = ['adobe_target', ]
+PLUGINS = ['simon_signal',]
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

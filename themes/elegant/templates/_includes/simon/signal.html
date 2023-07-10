@@ -1,0 +1,18 @@
+<script>
+var _sd = _sd || {};
+_sd.partnerId = '93996ff1b672ee3f3799fb7546deb97432fb0594';
+    _sd.domain = '.penetrationtest.com';
+    _sd.environment = 'prod';
+    _sd.debug = true;
+(function(s,i,m){
+    w=window;d=document;n='script';l=Array.prototype.slice;
+    w._sd.lib=i;w.SimonData=s;
+    w[s]||(w[s]={
+    send:function(){(w[s].q=w[s].q||[]).push(arguments)},
+    identify:function(){a=l.call(arguments);a.unshift('identify');w[s].send.apply(null,a)},
+    track:function(){a=l.call(arguments);a.unshift('track');w[s].send.apply(null,a)}
+    });
+    t=d.createElement(n);t.src=i;
+    o=d.getElementsByTagName(m)[0];o.parentNode.insertBefore(t,o)
+})('sd','//static.simonsignal.com/simon-omx-min.js','script');
+</script>

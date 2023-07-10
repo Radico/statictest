@@ -4,4 +4,4 @@ Category: Page
 
 # This is post 2
 
-[adobe_target]
+[simon_signal]
