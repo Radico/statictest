@@ -7,7 +7,7 @@ Category: Page
 
 # This is post {{i}}
 
-[adobe_target]
+[simon_signal]
 
 """
 
